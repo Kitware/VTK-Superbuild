@@ -6,7 +6,7 @@ include (vtk_version)
 
 # ===> This will fail if VTK is not yet downloaded <=====
 # set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_BINARY_DIR}/vtk/src/vtk/Copyright.txt")
-# set(CPACK_RESOURCE_FILE_README "${CMAKE_BINARY_DIR}/vtk/src/vtk/README.html")
+# set(CPACK_RESOURCE_FILE_README "${CMAKE_BINARY_DIR}/vtk/src/vtk/README.md")
 # -------------------------------------------------------
 
 set(CPACK_RESOURCE_FILE_WELCOME "${CMAKE_SOURCE_DIR}/Projects/readme.vtkpython.txt")
