@@ -57,10 +57,16 @@ add_revision(boost
   URL_MD5 dbc07ab0254df3dda6300fd737b3f264)
 
 option(USE_VTK_MASTER "Use the master VTK branch" OFF)
+cmake_dependent_option(BUILD_VTK7 "Build VTK 7" ON
+  "NOT USE_VTK_MASTER" OFF)
 if (USE_VTK_MASTER)
   set(vtk_tag "master")
 else ()
-  set(vtk_tag "v7.0.0.rc1")
+  if (BUILD_VTK7)
+    set(vtk_tag "v7.0.0.rc1")
+  else ()
+    set(vtk_tag "v6.3.0")
+  endif ()
 endif ()
 add_revision(vtk
   GIT_REPOSITORY https://gitlab.kitware.com/vtk/vtk.git
