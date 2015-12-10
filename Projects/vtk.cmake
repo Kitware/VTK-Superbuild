@@ -21,6 +21,12 @@ endif()
 # Build type
 # --------------------------
 
+if (BUILD_VTK7)
+  set(vtk_rendering_backend "OpenGL2")
+else ()
+  set(vtk_rendering_backend "OpenGL")
+endif ()
+
 set(package_conf)
 if(GENERATE_JAVA_PACKAGE)
 
@@ -72,6 +78,7 @@ add_external_project(vtk
     -DBUILD_TESTING:BOOL=OFF
 
     -DVTK_USE_SYSTEM_HDF5:BOOL=${hdf5_ENABLED}
+    -DVTK_RENDERING_BACKEND:STRING=${vtk_rendering_backend}
     ${osdefaultflags}
 
     # specify the apple app install prefix. No harm in specifying it for all
