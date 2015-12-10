@@ -20,19 +20,19 @@ if(GENERATE_JAVA_PACKAGE)
     COMPONENT superbuild)
 else()
   # install all VTK's shared libraries.
-  install(DIRECTORY "@install_location@/lib/"
+  install(DIRECTORY "${install_location}/lib/"
     DESTINATION "lib"
     USE_SOURCE_PERMISSIONS
     COMPONENT superbuild)
 
   # install python
   if (python_ENABLED AND NOT USE_SYSTEM_python)
-    install(DIRECTORY "@install_location@/lib/python2.7"
+    install(DIRECTORY "${install_location}/lib/python2.7"
       DESTINATION "lib"
       USE_SOURCE_PERMISSIONS
       COMPONENT superbuild)
     # install pyconfig.h
-    install (DIRECTORY "@install_location@/include/python2.7"
+    install (DIRECTORY "${install_location}/include/python2.7"
       DESTINATION "include"
       USE_SOURCE_PERMISSIONS
       COMPONENT superbuild
@@ -57,7 +57,7 @@ else()
   set (executables vtkpython)
 
   foreach(executable ${executables})
-    install(PROGRAMS "@install_location@/bin/${executable}"
+    install(PROGRAMS "${install_location}/bin/${executable}"
       DESTINATION "bin"
       COMPONENT superbuild)
   endforeach()
