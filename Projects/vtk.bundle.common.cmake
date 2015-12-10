@@ -4,10 +4,11 @@ include (vtk_version)
 
 # Enable CPack packaging.
 
-# ===> This will fail if VTK is not yet downloaded <=====
-# set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_BINARY_DIR}/vtk/src/vtk/Copyright.txt")
-# set(CPACK_RESOURCE_FILE_README "${CMAKE_BINARY_DIR}/vtk/src/vtk/README.md")
-# -------------------------------------------------------
+if (EXISTS "${CMAKE_BINARY_DIR}/vtk/src/vtk/README.md")
+  # This will fail if VTK is not yet downloaded.
+  set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_BINARY_DIR}/vtk/src/vtk/Copyright.txt")
+  set(CPACK_RESOURCE_FILE_README "${CMAKE_BINARY_DIR}/vtk/src/vtk/README.md")
+endif ()
 
 set(CPACK_RESOURCE_FILE_WELCOME "${CMAKE_SOURCE_DIR}/Projects/readme.vtkpython.txt")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY
