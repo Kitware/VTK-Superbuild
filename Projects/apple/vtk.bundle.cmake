@@ -36,12 +36,6 @@ else()
          USE_SOURCE_PERMISSIONS
          TYPE DIRECTORY
          FILES \"${install_location}/bin/vtkpython\")
-    file(INSTALL
-         DESTINATION \"\${CMAKE_INSTALL_PREFIX}/vtkpython/bin/\"
-         USE_SOURCE_PERMISSIONS
-         TYPE DIRECTORY
-         FILES \"${install_location}/bin/vtk\")
-         #FILES \"${install_location}/lib/python2.7/site-packages/vtk\")
     file(MAKE_DIRECTORY \"\${CMAKE_INSTALL_PREFIX}/vtkpython/lib\")
     execute_process(
         COMMAND ${CMAKE_CURRENT_LIST_DIR}/fixup_bundle.py
