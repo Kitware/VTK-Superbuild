@@ -24,6 +24,20 @@ if(GENERATE_JAVA_PACKAGE)
     "
     COMPONENT superbuild)
 else()
+  # install python
+  if (python_ENABLED AND NOT USE_SYSTEM_python)
+    install(DIRECTORY "${install_location}/lib/python2.7"
+      DESTINATION "lib"
+      USE_SOURCE_PERMISSIONS
+      COMPONENT superbuild)
+    # install pyconfig.h
+    install (DIRECTORY "${install_location}/include/python2.7"
+      DESTINATION "include"
+      USE_SOURCE_PERMISSIONS
+      COMPONENT superbuild
+      PATTERN "pyconfig.h")
+  endif()
+
   install(CODE
     "
     file(INSTALL
