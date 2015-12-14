@@ -24,6 +24,20 @@ if(GENERATE_JAVA_PACKAGE)
     "
     COMPONENT superbuild)
 else()
+  # install python
+  if (python_ENABLED AND NOT USE_SYSTEM_python)
+    install(DIRECTORY "${install_location}/lib/python2.7"
+      DESTINATION "lib"
+      USE_SOURCE_PERMISSIONS
+      COMPONENT superbuild)
+    # install pyconfig.h
+    install (DIRECTORY "${install_location}/include/python2.7"
+      DESTINATION "include"
+      USE_SOURCE_PERMISSIONS
+      COMPONENT superbuild
+      PATTERN "pyconfig.h")
+  endif()
+
   install(CODE
     "
     file(INSTALL
@@ -36,12 +50,6 @@ else()
          USE_SOURCE_PERMISSIONS
          TYPE DIRECTORY
          FILES \"${install_location}/bin/vtkpython\")
-    file(INSTALL
-         DESTINATION \"\${CMAKE_INSTALL_PREFIX}/vtkpython/bin/\"
-         USE_SOURCE_PERMISSIONS
-         TYPE DIRECTORY
-         FILES \"${install_location}/bin/vtk\")
-         #FILES \"${install_location}/lib/python2.7/site-packages/vtk\")
     file(MAKE_DIRECTORY \"\${CMAKE_INSTALL_PREFIX}/vtkpython/lib\")
     execute_process(
         COMMAND ${CMAKE_CURRENT_LIST_DIR}/fixup_bundle.py

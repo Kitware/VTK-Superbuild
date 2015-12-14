@@ -111,7 +111,7 @@ else()
   endif()
 
   # install vtk python modules and others.
-  install(DIRECTORY "${install_location}/lib/site-packages/vtk"
+  install(DIRECTORY "${install_location}/lib/python2.7/site-packages/vtk"
           DESTINATION "bin/Lib/site-packages"
           USE_SOURCE_PERMISSIONS
           COMPONENT VTK)
