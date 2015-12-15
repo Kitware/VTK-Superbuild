@@ -25,7 +25,7 @@ if(GENERATE_JAVA_PACKAGE)
     COMPONENT superbuild)
 else()
   # install python
-  if (python_ENABLED AND NOT USE_SYSTEM_python)
+  if (python_ENABLED)
     install(DIRECTORY "${install_location}/lib/python2.7"
       DESTINATION "lib"
       USE_SOURCE_PERMISSIONS
