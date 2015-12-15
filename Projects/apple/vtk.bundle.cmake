@@ -26,16 +26,10 @@ if(GENERATE_JAVA_PACKAGE)
 else()
   # install python
   if (python_ENABLED)
-    install(DIRECTORY "${install_location}/lib/python2.7"
-      DESTINATION "lib"
+    install(DIRECTORY "${install_location}/lib/python2.7/site-packages/vtk"
+      DESTINATION "vtkpython/bin"
       USE_SOURCE_PERMISSIONS
       COMPONENT superbuild)
-    # install pyconfig.h
-    install (DIRECTORY "${install_location}/include/python2.7"
-      DESTINATION "include"
-      USE_SOURCE_PERMISSIONS
-      COMPONENT superbuild
-      PATTERN "pyconfig.h")
   endif()
 
   install(CODE
