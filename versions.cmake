@@ -72,11 +72,7 @@ cmake_dependent_option(BUILD_VTK7 "Build VTK 7" ON
 if (USE_VTK_MASTER)
   set(vtk_tag "master")
 else ()
-  if (BUILD_VTK7)
-    set(vtk_tag "v7.0.0.rc2")
-  else ()
-    set(vtk_tag "v6.3.0")
-  endif ()
+  set(vtk_tag "${vtk_version_tag}")
 endif ()
 add_revision(vtk
   GIT_REPOSITORY https://gitlab.kitware.com/vtk/vtk.git
