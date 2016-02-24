@@ -76,6 +76,10 @@ else()
   # install python since (since python dlls are not in the install location)
   if (python_ENABLED AND NOT USE_SYSTEM_python)
     # install the Python's modules.
+    install(DIRECTORY "${SuperBuild_BINARY_DIR}/python/src/python/bin/Lib"
+            DESTINATION "bin"
+            USE_SOURCE_PERMISSIONS
+            COMPONENT VTK)
     install(DIRECTORY "${SuperBuild_BINARY_DIR}/python/src/python/Lib"
             DESTINATION "bin"
             USE_SOURCE_PERMISSIONS
