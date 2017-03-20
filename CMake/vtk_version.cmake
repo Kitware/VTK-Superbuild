@@ -3,7 +3,7 @@
 if (BUILD_VTK7)
   set (vtk_version_major 7)
   set (vtk_version_minor 1)
-  set (vtk_version_patch 0)
+  set (vtk_version_patch 1)
   #set (vtk_version_suffix "RC2")
 else ()
   set (vtk_version_major 6)
