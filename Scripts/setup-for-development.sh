@@ -3,32 +3,28 @@
 # Make sure we are inside the repository.
 cd "${BASH_SOURCE%/*}/.."
 
-echo "Ensuring all submodules are checked out and up to date..."
-git submodule init
-git submodule sync
-git submodule update
+Scripts/GitSetup/setup-user && echo &&
+Scripts/GitSetup/setup-hooks && echo &&
+Scripts/setup-git-aliases && echo &&
+(Scripts/GitSetup/setup-upstream ||
+ echo 'Failed to setup origin.  Run this again to retry.') && echo &&
+(Scripts/GitSetup/setup-gitlab ||
+ echo 'Failed to setup GitLab.  Run this again to retry.') && echo &&
+Scripts/GitSetup/tips
+
+echo "Initializing and updating git submodules..."
+git submodule update --init --recursive
 
 # Rebase master by default
 git config rebase.stat true
 git config branch.master.rebase true
 
-echo "Checking basic user information..."
-Scripts/GitSetup/setup-user
-echo
+# Disable Gerrit hook explicitly so the commit-msg hook will
+# not complain even if some gerrit remotes are still configured.
+git config hooks.GerritId false
 
-Scripts/GitSetup/setup-hooks
-echo
+# Record the version of this setup so Scripts/pre-commit can check it.
+SetupForDevelopment_VERSION=2
+git config hooks.SetupForDevelopment ${SetupForDevelopment_VERSION}
 
-echo "Setting up git aliases..."
-Scripts/setup-git-aliases
-echo
-
-echo "Setting up Gerrit..."
-Scripts/GitSetup/setup-gerrit ||
-  echo "Failed to setup Gerrit. Run this script again to retry."
-echo
-
-setup_version=1
-git config hooks.setup ${setup_version}
-
-echo "Setup for development complete for ParaViewSuperbuild."
+echo "Setup for development complete for VTK-Superbuild."
