@@ -15,8 +15,8 @@ if (APPLE)
 endif()
 
 project(ParaViewSuperBuild)
-set (SuperBuild_CMAKE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
-set (SuperBuild_PROJECTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Projects")
+set (SuperBuild_CMAKE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set (SuperBuild_PROJECTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/projects")
 set (SuperBuild_BINARY_DIR ${ParaViewSuperBuild_BINARY_DIR})
 
 set (platform)

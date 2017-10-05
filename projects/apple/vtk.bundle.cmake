@@ -38,7 +38,7 @@ else()
          DESTINATION \"\${CMAKE_INSTALL_PREFIX}\"
          USE_SOURCE_PERMISSIONS
          TYPE DIRECTORY
-         FILES \"${CMAKE_SOURCE_DIR}/Projects/readme.vtkpython.txt\")
+         FILES \"${CMAKE_SOURCE_DIR}/projects/readme.vtkpython.txt\")
     file(INSTALL
          DESTINATION \"\${CMAKE_INSTALL_PREFIX}/vtkpython/bin\"
          USE_SOURCE_PERMISSIONS

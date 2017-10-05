@@ -10,7 +10,7 @@ if (EXISTS "${CMAKE_BINARY_DIR}/vtk/src/vtk/README.md")
   set(CPACK_RESOURCE_FILE_README "${CMAKE_BINARY_DIR}/vtk/src/vtk/README.md")
 endif ()
 
-set(CPACK_RESOURCE_FILE_WELCOME "${CMAKE_SOURCE_DIR}/Projects/readme.vtkpython.txt")
+set(CPACK_RESOURCE_FILE_WELCOME "${CMAKE_SOURCE_DIR}/projects/readme.vtkpython.txt")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY
   "VTK is a library for scientific visualization.")
 set(CPACK_PACKAGE_NAME "VTK")
