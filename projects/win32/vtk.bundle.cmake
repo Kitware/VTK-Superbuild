@@ -54,7 +54,7 @@ else()
   file(INSTALL
     DESTINATION "doc"
     USE_SOURCE_PERMISSIONS
-    FILES "${CMAKE_SOURCE_DIR}/Projects/readme.vtkpython.txt")
+    FILES "${CMAKE_SOURCE_DIR}/projects/readme.vtkpython.txt")
 
   # install vtk executables to bin.
   foreach(executable
@@ -143,4 +143,3 @@ set_tests_properties(GenerateParaViewPackage-ZIP
                      # dashboards
                      LABELS "VTK"
                      TIMEOUT 1200) # increase timeout to 20 mins.
-
